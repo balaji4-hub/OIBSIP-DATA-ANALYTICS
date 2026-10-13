@@ -1,0 +1,170 @@
+# 🍷 Wine Quality Prediction Using Machine Learning
+
+## 📌 Project Overview
+
+The **Wine Quality Prediction** project uses machine learning classification algorithms to predict wine quality categories based on physicochemical properties such as acidity, density, pH, sulphates, and alcohol content.
+
+The project analyzes a combined dataset containing red and white wine records, explores patterns in the data, and compares three classification models to determine which performs best.
+
+## 🎯 Objectives
+
+* Load and explore the Wine Quality dataset.
+* Analyze the distribution of wine quality scores.
+* Visualize chemical feature distributions using histograms.
+* Examine relationships between numerical features using a correlation heatmap.
+* Investigate class imbalance in wine quality categories.
+* Group quality scores into Low, Medium, and High categories.
+* Split the dataset into training and testing sets using stratification.
+* Train and evaluate three machine learning classifiers.
+* Compare model performance using evaluation metrics.
+* Identify important features using Random Forest feature importance.
+
+## 🛠️ Technologies Used
+
+* **Python** — Programming language
+* **Pandas** — Data loading and manipulation
+* **NumPy** — Numerical operations
+* **Matplotlib** — Data visualization
+* **Seaborn** — Statistical visualization
+* **Scikit-learn** — Machine learning and model evaluation
+* **Google Colab** — Development environment
+
+## 📂 Dataset
+
+The project uses a CSV file containing combined red and white wine data.
+
+The dataset includes physicochemical measurements and a wine quality score.
+
+Example features include:
+
+* Fixed acidity
+* Volatile acidity
+* Citric acid
+* Residual sugar
+* Chlorides
+* Free sulfur dioxide
+* Total sulfur dioxide
+* Density
+* pH
+* Sulphates
+* Alcohol
+* Quality
+
+**Dataset source:** [UCI Machine Learning Repository — Wine Quality](https://archive.ics.uci.edu/dataset/186/wine+quality)
+
+Place your dataset file in the Google Colab session and update the file path in the notebook if necessary.
+
+## 🔍 Exploratory Data Analysis
+
+The project performs the following analyses:
+
+1. Inspects dataset dimensions, column names, data types, and missing values.
+2. Checks for duplicate records.
+3. Displays descriptive statistics.
+4. Visualizes the distribution of original wine quality scores.
+5. Creates histograms of numerical chemical features.
+6. Generates a correlation heatmap to examine relationships between features.
+7. Visualizes the distribution of the engineered quality categories.
+
+## ⚙️ Feature Engineering
+
+The original numerical quality scores are converted into three categories:
+
+| Quality Score | Category |
+| ------------- | -------- |
+| 3–5           | Low      |
+| 6             | Medium   |
+| 7 and above   | High     |
+
+This grouping turns the problem into a three-class classification task.
+
+The original `quality` column is excluded from the input features to prevent target leakage. The engineered `quality_category` column is used as the prediction target.
+
+## 🤖 Machine Learning Models
+
+Three classification algorithms are trained and compared.
+
+### 1. Random Forest Classifier
+
+An ensemble learning algorithm that combines multiple decision trees to make predictions. The model also provides feature importance estimates.
+
+### 2. Stochastic Gradient Descent (SGD) Classifier
+
+A linear classification algorithm trained using stochastic gradient-based optimization. Feature scaling is applied before training.
+
+### 3. Support Vector Classifier (SVC)
+
+A classifier that learns decision boundaries between classes. The project uses an RBF kernel and scales the input features.
+
+The models use class weighting to help address the imbalanced distribution of quality categories.
+
+## 📊 Model Evaluation
+
+The models are evaluated on a held-out test set using:
+
+* **Accuracy:** The proportion of predictions that are correct.
+* **Precision:** How many predictions for a class are correct.
+* **Recall:** How many actual examples of a class are identified.
+* **F1-score:** A balance between precision and recall.
+* **Macro F1-score:** The average F1-score across classes, giving each class equal weight.
+* **Confusion matrix:** Shows correct and incorrect predictions by class.
+
+The dataset is split into 80% training data and 20% testing data using stratification to help preserve class proportions.
+
+The results are summarized in a comparison table and bar chart.
+
+## 🌟 Feature Importance
+
+The project uses the trained Random Forest classifier to calculate and visualize feature importance.
+
+This analysis identifies which input features the model relied on most when making predictions. Feature importance indicates predictive usefulness and does not establish causation.
+
+## 🚀 How to Run the Project
+
+1. Open [Google Colab](https://colab.research.google.com/).
+2. Upload or open `wine_quality_prediction.ipynb`.
+3. Upload the combined red-and-white wine CSV file to the Colab session.
+4. Update the dataset path in the notebook if the filename differs.
+5. Run the notebook cells in order.
+6. Review the EDA charts, classification reports, confusion matrices, model comparison, and feature importance chart.
+
+## 📁 Project Structure
+
+```text
+wine-quality-prediction/
+│
+├── README.md
+├── wine_quality_prediction.ipynb
+└── wine-quality-white-and-red.csv
+```
+
+The CSV filename shown above is an example. Use your actual dataset filename if it differs. Include the dataset in your repository only if its licensing and size are appropriate.
+
+## 📈 Results
+
+The notebook generates:
+
+* Wine quality distribution plots
+* Chemical feature histograms
+* A correlation heatmap
+* Classification reports for all three models
+* Confusion matrices for all three models
+* A model performance comparison table
+* A model comparison chart
+* A Random Forest feature importance chart
+
+**Model performance:** Add the actual accuracy and macro F1-score from your notebook after running the code. The best model should be selected based on measured results rather than assumed in advance.
+
+## 🏁 Conclusion
+
+This project demonstrates how machine learning can be used to classify wine quality using physicochemical measurements. It combines exploratory data analysis, feature engineering, stratified data splitting, classification, and model evaluation.
+
+Comparing Random Forest, SGD, and SVC helps identify a suitable model for the three-class prediction task. The final model selection should consider macro F1-score, performance across all classes, reliability, and computational requirements.
+
+Further improvements could include hyperparameter tuning, cross-validation, and more detailed investigation of underrepresented classes.
+
+## 👤 Author
+
+**Your Name**
+
+Replace this placeholder with your name before publishing your repository.
